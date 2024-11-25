@@ -19,6 +19,7 @@ const useGames = () => {
                     loading: false,
                     error: null,
                 }));
+                sortLocalList("Default")
             }
         } catch (error) {
             console.error("Error Fetching Games:", error);
@@ -30,18 +31,46 @@ const useGames = () => {
         }
     };
 
+    const addNewGame = (newGame) => {
+        setGamesState((prevState) => ({
+            ...prevState,
+            gamesList: [...(prevState[0]?.db?.gamesList || []), newGame], // Add new game to gamesList
+            localList: [...prevState.localList, newGame], // Add new game to localList
+            loading: false,
+            error: null,
+        }));
+    };
+    
+
     const sortLocalList = (method) => {
         const newList = [...gamesState.localList];
+        console.log(newList); // Log to check the list
+
         if (method === 'A-Z') {
-            newList.sort((a, b) => a.name.localeCompare(b.name));
+            newList.sort((a, b) => {
+                const nameA = a.name || "";
+                const nameB = b.name || "";
+                return nameA.localeCompare(nameB);
+            });
         } else if (method === 'Z-A') {
-            newList.sort((a, b) => b.name.localeCompare(a.name));
+            newList.sort((a, b) => {
+                const nameA = a.name || "";
+                const nameB = b.name || "";
+                return nameB.localeCompare(nameA);
+            });
+        } else {
+            newList.sort((a, b) => {
+                const dateA = new Date(a.startDate);
+                const dateB = new Date(b.startDate);
+                return dateA - dateB; // Ascending order
+            });
         }
         setGamesState({ ...gamesState, localList: newList });
     };
 
 
-    return { gamesState, setGamesState, handleFetchGames, sortLocalList };
+
+    return { gamesState, setGamesState, handleFetchGames, sortLocalList,addNewGame };
 };
 
 export default useGames;

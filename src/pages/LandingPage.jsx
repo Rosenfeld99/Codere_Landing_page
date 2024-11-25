@@ -3,11 +3,11 @@ import MainHeader from '../components/headers/MainHeader'
 import Carousel from '../components/carousel/Carousel'
 import GameOddsList from '../components/games/GameOddsList'
 import CasinoOption from '../components/Casino/CasinoOption'
-import CatList from '../components/categories/CatList'
+import CategoriesCards from '../components/categories/CategoriesCards'
 
 const LandingPage = () => {
     return (
-        <div className='bg-[#252A30] min-h-screen'>
+        <div className='bg-[#252A30] min-h-screen pb-28'>
             {/* Header */}
             <MainHeader />
 
@@ -23,8 +23,8 @@ const LandingPage = () => {
                 {/* MEJOR JUEGOS DE CASINO */}
                 <CasinoOption/>
                 
-                {/* Categories list */}
-                <CatList/>
+                {/* Categories list of cards*/}
+                <CategoriesCards/>
             </div>
         </div>
     )

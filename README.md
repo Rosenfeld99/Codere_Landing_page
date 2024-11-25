@@ -1,8 +1,24 @@
-# React + Vite
+# Codere Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple landing page of codere with fetureds like sorting games by date, A-Z and Z-A, full responsive and design mobile menu.
 
-Currently, two official plugins are available:
+## Installation & Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/Rosenfeld99/Codere_Landing_page
+   ```
+   
+2. Install the dependencies:
+   ```bash
+   npm i
+   ```
+   
+3. Create .env file on root directory and past this value:
+   ```bash
+   VITE_API_GAME="https://inicio-banner-server-51647ce90258.herokuapp.com/games"
+   ```
+4. Start:
+   ```bash
+   npm run dev
+   ```
